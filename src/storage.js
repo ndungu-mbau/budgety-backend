@@ -1,13 +1,15 @@
 import Waterline from "waterline"
-import DiskAdapter from "sails-disk";
-import MongoAdapter from "sails-mongo";
+import DiskAdapter from "sails-disk"
+import MongoAdapter from "sails-mongo"
 
-const { NODE_ENV, DB_URL = 'db url here' } = process.env;
+import user from "./models/user"
 
-var waterline = new Waterline();
+const { NODE_ENV, DB_URL = 'db url here' } = process.env
 
-/*waterline.registerModel(admins);
-waterline.registerModel(routes);
+var waterline = new Waterline()
+
+waterline.registerModel(user)
+/*waterline.registerModel(routes);
 waterline.registerModel(drivers);
 waterline.registerModel(buses);
 waterline.registerModel(students);
