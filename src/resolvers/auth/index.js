@@ -40,7 +40,6 @@ router.post('/signup', async (req, res) => {
     username,
     email,
     password,
-    isDeleted: false,
     id: new ObjectID().toHexString()
   }
   
