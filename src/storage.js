@@ -3,23 +3,14 @@ import DiskAdapter from "sails-disk"
 import MongoAdapter from "sails-mongo"
 
 import user from "./models/user"
+import entry from "./models/entry"
 
 const { NODE_ENV, DB_URL = 'db url here' } = process.env
 
-var waterline = new Waterline()
+const waterline = new Waterline()
 
 waterline.registerModel(user)
-/*waterline.registerModel(routes);
-waterline.registerModel(drivers);
-waterline.registerModel(buses);
-waterline.registerModel(students);
-waterline.registerModel(parents);
-waterline.registerModel(schedule);
-waterline.registerModel(event);
-waterline.registerModel(trip);
-waterline.registerModel(complaint);
-waterline.registerModel(locReport)
-waterline.registerModel(OTP)*/
+waterline.registerModel(entry);
 
 const config = {
   adapters: {

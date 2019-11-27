@@ -6,7 +6,8 @@ import cookies from "cookie-parser"
 
 import storage from "./storage"
 
-import { router as auth } from "./resolvers/auth"
+import { router as auth, authMiddleware } from "./resolvers/auth"
+import { router as entries } from "./resolvers/entries"
 
 const { NODE_ENV, PORT = 3000 } = process.env;
 
@@ -24,6 +25,7 @@ const attatchRouter = async () => {
   Object.assign(app.locals, { db })
 
   app.use("/auth", auth)
+  app.use("/entries", authMiddleware, entries)
 }
 
 attatchRouter()
