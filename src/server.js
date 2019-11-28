@@ -1,8 +1,11 @@
 import express from "express"
-
 import morgan from "morgan"
 import bodyParser from "body-parser"
 import cookies from "cookie-parser"
+import favicon from "serve-favicon"
+import cors from "cors"
+
+import path from "path"
 
 import storage from "./storage"
 
@@ -16,6 +19,8 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json('*/*'))
 app.use(cookies())
+app.use(cors())
+app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')))
 
 if (NODE_ENV !== "test") app.use(morgan("tiny"))
 
