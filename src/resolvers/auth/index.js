@@ -25,7 +25,6 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body
   
   const user = await collections["users"].findOne({ email })
-  console.log(user)
 
   if(!user){
     return res.json({ ok: false, message: `User with email ${email} not found` })
@@ -49,7 +48,6 @@ router.post('/signup', async (req, res) => {
   }
   
   await collections["users"].create(user)
-  console.log(user)
 
   const token = jwt.sign(user, SECRET)
   res.cookie('token', token)

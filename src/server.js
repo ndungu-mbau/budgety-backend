@@ -13,7 +13,7 @@ import storage from "./storage"
 import { router as auth, authMiddleware } from "./resolvers/auth"
 import { router as entries } from "./resolvers/entries"
 
-const { NODE_ENV, PORT = 3000 } = process.env;
+const { NODE_ENV, PORT = 4000 } = process.env;
 
 const app = express()
 
