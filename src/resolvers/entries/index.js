@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   const { db: { collections }} = req.app.locals
   const { id : user } = req.user
 
-  const entries = await collections["entries"].find({ user, isDeleted: false })
+  const entries = await collections["entries"].find({ user, month: new Date().getMonth(), isDeleted: false })
   res.json(entries)
 })
 
@@ -20,6 +20,7 @@ router.post("/", async (req, res) => {
     type,
     description,
     amount,
+    month: new Date().getMonth(),
     id: new ObjectID().toHexString(),
     user
   }

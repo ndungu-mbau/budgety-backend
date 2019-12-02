@@ -11,6 +11,7 @@ export default Waterline.Collection.extend({
     type: { type: "string", required: true },
     description: { type: "string", required: true },
     amount: { type: "number", required: true },
+    month: { type: "number", required: true },
     user: { type: "string", required: true },
     isDeleted: { type: "boolean", defaultsTo: false }
   }
