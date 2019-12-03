@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
   const { db : { collections }} = req.app.locals
   const { email, password } = req.body
   
-  const user = await collections["users"].findOne({ email })
+  const user = await collections["users"].find({ email })[0]
 
   if(!user){
     return res.json({ ok: false, message: `User with email ${email} not found` })
